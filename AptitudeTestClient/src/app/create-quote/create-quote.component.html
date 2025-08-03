@@ -1,8 +1,31 @@
-<p>Implement logic here to submit a new quote</p>
+<h1>Create a Quote</h1>
 
 <form [formGroup]="form" (ngSubmit)="submit()">
-<!-- Add form here -->
+
+  <label for="name">Name</label>
+  <input id="name" type="text" formControlName="name" />
+
+  <label for="tiv">TIV</label>
+  <input id="tiv" type="number" formControlName="tiv" />
+
+  <label for="stateId">State</label>
+  <select id="stateId" formControlName="stateId">
+    <option value="" disabled>Select a state</option>
+    <option *ngFor="let state of states" [value]="state.id">
+      {{ state.abbreviation }}
+    </option>
+  </select>
+
+  <label for="premium">Premium</label>
+  <input id="premium" type="text" [value]="premium | number:'1.2-2'" readonly />
+  <button type="button" (click)="cancel()" class="cancel-btn">
+    Cancel
+  </button>
+  <button type="submit" [disabled]="form.invalid">
+    Save Quote
+  </button>
 </form>
 
-<hr>
-<pre>Form value: {{form.value | json}}</pre>
+
+<!--<hr>
+<pre>Form value: {{form.value | json}}</pre>-->

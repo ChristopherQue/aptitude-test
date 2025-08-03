@@ -24,7 +24,7 @@ h1 {
 .table-container {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  overflow-x: auto;
+  overflow-x: auto; 
   white-space: nowrap;
 }
 
